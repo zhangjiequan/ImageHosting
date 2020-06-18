@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         OA_工作日餐费交通费申请_固定选人
 // @namespace    https://github.com/zhangjiequan/
-// @version      0.4
+// @version      0.5
 // @updateURL    https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
 // @downloadURL  https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
 // @description  OA_工作日餐费交通费申请_固定选人（不用插件，默认的话，总是选了第一个，不科学）
 // @author       zhangjiequan
 // @match        http://oa.info/mealtrafficapply/draft.do*
+// @match        http://oa.info/attend/otApply/draft.do**
+// @match        http://oa.info/*
 // @grant        none
 // ==/UserScript==
 
@@ -16,10 +18,10 @@
     // Your code here...
     $(function () {
         var kLocalStorageLeaderKey = "OA_mealtrafficapply_localStorage_item_name_selectedLeader"
-        var enableLog = false
+        var enableLog = true
 
-        var log = function(msg) {
-            if (!enableLog){
+        var log = function (msg) {
+            if (!enableLog) {
                 return
             }
             console.log(msg)
@@ -65,13 +67,19 @@
             }
         }
 
-        var calledInterval = function () {
-            log("calledInterval");
-            saveSelectedLeaderId()
-        }
-
         autoSelectLeader()
-        setInterval(function () { calledInterval() }, 1000);
+
+        // var calledInterval = function () {
+        //     log("calledInterval");
+        //     saveSelectedLeaderId()
+        // }
+        // setInterval(function () { calledInterval() }, 1000);
+
+        $(document).ready(function () {
+            $('input[type=radio]').change(function () {
+                saveSelectedLeaderId()
+            });
+        });
     });
 
 })();
