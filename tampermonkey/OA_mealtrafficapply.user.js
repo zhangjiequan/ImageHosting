@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         OA_工作日餐费交通费申请_固定选人
+// @name         OA_小助手
 // @namespace    https://github.com/zhangjiequan/
-// @version      0.7
+// @version      0.8
 // @updateURL    https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
 // @downloadURL  https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
-// @description  OA_工作日餐费交通费申请_固定选人（不用插件，默认的话，总是选了第一个，不科学）
+// @description  自动选择上次选择的部门负责人、以及填写常用缺省值
 // @author       zhangjiequan
 // @match        http://oa.info/mealtrafficapply/draft.do*
 // @match        http://oa.info/attend/otApply/draft.do**
