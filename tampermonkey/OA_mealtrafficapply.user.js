@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OA_工作日餐费交通费申请_固定选人
 // @namespace    https://github.com/zhangjiequan/
-// @version      0.6
+// @version      0.7
 // @updateURL    https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
 // @downloadURL  https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/OA_mealtrafficapply.user.js
 // @description  OA_工作日餐费交通费申请_固定选人（不用插件，默认的话，总是选了第一个，不科学）
@@ -17,7 +17,7 @@
 (function () {
     // Your code here...
     $(function () {
-        var kLocalStorageLeaderKey = "OA_mealtrafficapply_localStorage_item_name_selectedLeader"
+        var kLocalStorageLeaderKey = "OA_mealtrafficapply_localStorage_item_name_selectedLeader2"
         var enableLog = true
 
         var log = function (msg) {
@@ -67,19 +67,76 @@
             }
         }
 
-        setTimeout(autoSelectLeader,500);
+        var autoFillMealtrafficapplyInfo = function () {
 
+            //-----------------------工作日餐费交通费申请--------------------
+            //勾选申请
+            var isApplys = document.getElementsByClassName("isApply")
+            for (var i = 0; i < isApplys.length; i++) {
+                isApplys[i].checked = true
+            }
+
+            // 加班事由
+            var reasons = document.getElementsByClassName("form-bg input-middle reason")
+            for (var i = 0; i < reasons.length; i++) {
+                reasons[i].value = "功能开发"
+            }
+
+
+            //-----------------------报销单--------------------
+            // 纸质发票数
+            var appendixNum = document.getElementById("appendixNum")
+            if (appendixNum) {
+                appendixNum.value = "1"
+            }
+
+            // 报销事由
+            var repay_content = document.getElementById("repay_content")
+            if (repay_content) {
+                repay_content.value = "加班"
+            }
+            // // 项目
+            // var pjSelBtn = document.getElementsByClassName("pjSelBtn")
+            // if (pjSelBtn) {
+            //     log("pjSelBtn") //能log，但是不能选择？什么原因？
+            //     pjSelBtn.value = "3"//市内交通费（加班）
+            // }
+
+            //-----------------------请假单--------------------
+            // 请假类别
+            // 不能模拟点击，直接设置值，没有回调，不能显示动态控件
+            // var holidayTypeSelect = document.getElementById("holidayTypeSelect")
+            // if (holidayTypeSelect) {
+            //     holidayTypeSelect.value = "2"//补休
+            // }
+
+            // 请假事由
+            var leaveReason = document.getElementById("leaveReason")
+            if (leaveReason) {
+                leaveReason.value = "家里有事"
+            }
+        }
+
+        // 每秒，保存选择的部门负责人
         // var calledInterval = function () {
         //     log("calledInterval");
         //     saveSelectedLeaderId()
         // }
         // setInterval(function () { calledInterval() }, 1000);
 
+        // 选择变化时，保存选择的部门负责人
         $(document).ready(function () {
             $('input[type=radio]').change(function () {
                 saveSelectedLeaderId()
             });
         });
+
+        var delayHalfSecond = function () {
+            autoSelectLeader()
+            autoFillMealtrafficapplyInfo()
+        }
+
+        setTimeout(delayHalfSecond, 200);
     });
 
 })();
