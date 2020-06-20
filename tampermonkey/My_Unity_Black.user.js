@@ -15,6 +15,7 @@
 // @resource grayscale		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-grayscale.dark.css
 // @resource ocean			https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-ocean.dark.css
 // @resource tomorrow		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-tomorrow.dark.css
+// @resource t3024		    https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-3024.dark.css
 // @grant                   GM_getValue
 // @grant                   GM_setValue
 // @grant                   GM_deleteValue
@@ -92,6 +93,16 @@ $(document).ready(function () {
         });
     }
 
+    function t3024() {
+        GM_addStyle(GM_getResourceText("t3024"));
+        $('pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+        $('code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    }
+
     //init style
     //bold();
     //github();
@@ -102,13 +113,13 @@ $(document).ready(function () {
     //style selector
     $("<div id='rock1'></div>").appendTo('pre.codeExampleCS');
     $("<div id='rock'></div>").appendTo('pre');
-    $('#rock').html('<a id="bold">bold</a> | <a id="grayscale">grayscale</a> | <a id="ocean">ocean</a> | <a id="tomorrow">tomorrow</a>  ')
+    $('#rock').html('<a id="bold">bold</a> | <a id="grayscale">grayscale</a> | <a id="ocean">ocean</a> | <a id="tomorrow">tomorrow</a>  | <a id="t3024">t3024</a>  ')
         .css('position', 'absolute')
         .css('top', '0px')
         .css('right', '0px')
         .css('float', 'right');
 
-    $('#rock1').html('<a id="bold1">bold</a> | <a id="grayscale1">grayscale</a> | <a id="ocean1">ocean</a> | <a id="tomorrow1">tomorrow</a>  ')
+    $('#rock1').html('<a id="bold1">bold</a> | <a id="grayscale1">grayscale</a> | <a id="ocean1">ocean</a> | <a id="tomorrow1">tomorrow</a>  | <a id="t30241">t3024</a>  ')
         .css('position', 'absolute')
         .css('top', '0px')
         .css('right', '0px')
@@ -174,6 +185,12 @@ $(document).ready(function () {
             styleName = 'tomorrow';
             GM_setValue("unitystyle", styleName);
         });
+        $('#t3024').on('click', function (e) {
+            e.preventDefault();
+            t3024();
+            styleName = 't3024';
+            GM_setValue("unitystyle", styleName);
+        });
     });
 
     $("pre.codeExampleCS").on("click", function (e) {
@@ -202,6 +219,12 @@ $(document).ready(function () {
             styleName = 'tomorrow';
             GM_setValue("unitystyle", styleName);
         });
+        $('#t30241').on('click', function (e) {
+            e.preventDefault();
+            t3024();
+            styleName = 't3024';
+            GM_setValue("unitystyle", styleName);
+        });
     });
 
     var c = GM_getValue("unitystyle");
@@ -222,7 +245,10 @@ $(document).ready(function () {
         $("#tomorrow").click();
         $("#tomorrow").click();
     }
-
+    if (c == "t3024") {
+        $("#t3024").click();
+        $("#t3024").click();
+    }
 
     //css style
     $('html').css('background-color', '#1A1B1C');
