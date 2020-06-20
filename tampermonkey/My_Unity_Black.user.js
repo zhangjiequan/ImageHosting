@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.8
+// @version					1.9
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -164,9 +164,10 @@ $(document).ready(function () {
 
 
     //add bg image logo
+    //http://i.imgur.com/keF6WXn.png
     $('pre').css('font-size', '0.8em').css('font-family', 'Consolas')
         .css('position', 'relative')
-        .css('background-image', 'url("http://i.imgur.com/keF6WXn.png")  ')
+        .css('background-image', 'url("https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black_bg256.png")  ')
         .css('background-image', 'width:10px')
         .css('background-position', 'top right')
         .css('background-repeat', 'no-repeat')
@@ -174,7 +175,7 @@ $(document).ready(function () {
 
     $('code').css('position', 'relative')
         .css('position', 'relative')
-        .css('background-image', 'url("http://i.imgur.com/keF6WXn.png")  ')
+        .css('background-image', 'url("https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black_bg256.png")  ')
         .css('background-image', 'width:10px')
         .css('background-position', 'top right')
         .css('background-repeat', 'no-repeat')
@@ -186,17 +187,18 @@ $(document).ready(function () {
     $('body').append('<style>.hljs{font-size: 0.8em !important;</style>')
     $('body').append('<style>.hljs{font-family: Consolas !important;</style>')
     $('body').append('<style>.hljs{position: relative !important;</style>')
-    $('body').append('<style>.hljs{background-image: url("http://i.imgur.com/keF6WXn.png") !important;</style>')
+    $('body').append('<style>.hljs{background-image: url("https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black_bg256.png") !important;</style>')
     $('body').append('<style>.hljs{background-image: width:10px !important;</style>')
-    $('body').append('<style>.hljs{background-color: #6495ed !important;</style>')
+    $('body').append('<style>.hljs{background-color: #000000 !important;</style>')
     $('body').append('<style>.hljs{background-position: top right !important;</style>')
     $('body').append('<style>.hljs{background-repeat: no-repeat !important;</style>')
     $('body').append('<style>.hljs{padding: 1px !important;</style>')
 
     //通过chrome的F12中的Styles窗口（把F12开发者工具窗口拖大点，才能看到Styles窗口）看到body中的pre有个background #f0f0f0 !important
     //于是通过代码追加黑色底
-    //$('body').append('<style>.hljs{background-color: #2b303b !important;}</style>')
-    $('body').append('<style>.hljs, pre, .feedbackbox{background-color: #2b303b !important;}</style>')
+    //2b303b
+    //$('body').append('<style>.hljs{background-color: #000000 !important;}</style>')
+    $('body').append('<style>.hljs, pre, .feedbackbox{background-color: #000000 !important;}</style>')
     //----------changed by zhangjiequan end  ----------
 
     var styleName;
