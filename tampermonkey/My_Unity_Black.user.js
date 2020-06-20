@@ -1,6 +1,7 @@
 // ==UserScript==
-// @name					[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
-// @namespace				https://greasyfork.org/en/users/10118-drhouse
+// @name					[docs.unity3d & local] My Unity Black - a dark theme with JS/C# syntax highlighting
+// @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
+// @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
 // @version					1.1
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @include					http://docs.unity3d.com/*
@@ -17,7 +18,8 @@
 // @grant                   GM_deleteValue
 // @grant					GM_addStyle
 // @grant					GM_getResourceText
-// @author					drhouse
+// @author                  zhangjiequan
+// @author_origin			drhouse
 // @icon					http://docs.unity3d.com/StaticFiles/images/favicons/favicon.ico
 // ==/UserScript==
 
