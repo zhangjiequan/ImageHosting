@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.3
+// @version					1.4
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -125,13 +125,13 @@ $(document).ready(function () {
     //style selector
     $("<div id='rock1'></div>").appendTo('pre.codeExampleCS');
     $("<div id='rock'></div>").appendTo('pre');
-    $('#rock').html('<a id="bold">bold</a> | <a id="grayscale">grayscale</a> | <a id="ocean">ocean</a> | <a id="tomorrow">tomorrow</a>  | <a id="t3024">t3024</a>  ')
+    $('#rock').html('<a id="bold">bold</a> | <a id="grayscale">grayscale</a> | <a id="ocean">ocean</a> | <a id="tomorrow">tomorrow</a>  ')
         .css('position', 'absolute')
         .css('top', '0px')
         .css('right', '0px')
         .css('float', 'right');
 
-    $('#rock1').html('<a id="bold1">bold</a> | <a id="grayscale1">grayscale</a> | <a id="ocean1">ocean</a> | <a id="tomorrow1">tomorrow</a>  | <a id="t30241">t3024</a>  ')
+    $('#rock1').html('<a id="bold1">bold</a> | <a id="grayscale1">grayscale</a> | <a id="ocean1">ocean</a> | <a id="tomorrow1">tomorrow</a>  ')
         .css('position', 'absolute')
         .css('top', '0px')
         .css('right', '0px')
@@ -139,13 +139,13 @@ $(document).ready(function () {
 
     $("<div id='rock3'></div>").appendTo('pre.codeExampleCS');
     $("<div id='rock2'></div>").appendTo('pre');
-    $('#rock2').html('<a id="applepips">applepips</a>  ')
+    $('#rock2').html('<a id="applepips">applepips</a>  | <a id="t3024">t3024</a>  ')
         .css('position', 'absolute')
         .css('top', '15px')
         .css('right', '0px')
         .css('float', 'right');
 
-    $('#rock3').html('<a id="applepips1">applepips</a>  ')
+    $('#rock3').html('<a id="applepips1">applepips</a>  | <a id="t30241">t3024</a>  ')
         .css('position', 'absolute')
         .css('top', '15px')
         .css('right', '0px')
