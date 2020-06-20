@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.2
+// @version					1.3
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -16,6 +16,7 @@
 // @resource ocean			https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-ocean.dark.css
 // @resource tomorrow		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-tomorrow.dark.css
 // @resource t3024		    https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-3024.dark.css
+// @resource applepips		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-applepips.dark.css
 // @grant                   GM_getValue
 // @grant                   GM_setValue
 // @grant                   GM_deleteValue
@@ -33,6 +34,7 @@
 //2、对应Unity网页修改，增加高优先级的hljs样式，解决原脚本因年久失修导致的代码区、评论区背景不能黑的问题
 //3、注释“div.arrow”，解决原脚本导航栏图片丢失的问题
 //4、增加样式3024
+//5、增加样式applepips，style selector中换行
 
 //样式增加建议教程
 //https://github.com/idleberg/base16-highlight.js选一个你喜欢的，如base16-3024.dark.css
@@ -103,6 +105,16 @@ $(document).ready(function () {
         });
     }
 
+    function applepips() {
+        GM_addStyle(GM_getResourceText("applepips"));
+        $('pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+        $('code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    }
+
     //init style
     //bold();
     //github();
@@ -122,6 +134,20 @@ $(document).ready(function () {
     $('#rock1').html('<a id="bold1">bold</a> | <a id="grayscale1">grayscale</a> | <a id="ocean1">ocean</a> | <a id="tomorrow1">tomorrow</a>  | <a id="t30241">t3024</a>  ')
         .css('position', 'absolute')
         .css('top', '0px')
+        .css('right', '0px')
+        .css('float', 'right');
+
+    $("<div id='rock3'></div>").appendTo('pre.codeExampleCS');
+    $("<div id='rock2'></div>").appendTo('pre');
+    $('#rock2').html('<a id="applepips">applepips</a>  ')
+        .css('position', 'absolute')
+        .css('top', '15px')
+        .css('right', '0px')
+        .css('float', 'right');
+
+    $('#rock3').html('<a id="applepips1">applepips</a>  ')
+        .css('position', 'absolute')
+        .css('top', '15px')
         .css('right', '0px')
         .css('float', 'right');
 
@@ -191,6 +217,12 @@ $(document).ready(function () {
             styleName = 't3024';
             GM_setValue("unitystyle", styleName);
         });
+        $('#applepips').on('click', function (e) {
+            e.preventDefault();
+            applepips();
+            styleName = 'applepips';
+            GM_setValue("unitystyle", styleName);
+        });
     });
 
     $("pre.codeExampleCS").on("click", function (e) {
@@ -225,6 +257,12 @@ $(document).ready(function () {
             styleName = 't3024';
             GM_setValue("unitystyle", styleName);
         });
+        $('#applepips').on('click', function (e) {
+            e.preventDefault();
+            applepips();
+            styleName = 'applepips';
+            GM_setValue("unitystyle", styleName);
+        });
     });
 
     var c = GM_getValue("unitystyle");
@@ -248,6 +286,10 @@ $(document).ready(function () {
     if (c == "t3024") {
         $("#t3024").click();
         $("#t3024").click();
+    }
+    if (c == "applepips") {
+        $("#applepips").click();
+        $("#applepips").click();
     }
 
     //css style
