@@ -121,6 +121,21 @@ $(document).ready(function () {
         .css('background-repeat', 'no-repeat')
         .css('padding', '1px');
 
+        //----------change by zhangjiequan start----------
+    //#2b303b
+    //#000000
+    $('body').append('<style>.hljs{font-size: 0.8em !important;</style>')
+    $('body').append('<style>.hljs{font-family: Consolas !important;</style>')
+    $('body').append('<style>.hljs{position: relative !important;</style>')
+    $('body').append('<style>.hljs{background-image: url("http://i.imgur.com/keF6WXn.png") !important;</style>')
+    $('body').append('<style>.hljs{background-image: width:10px !important;</style>')
+    $('body').append('<style>.hljs{background-color: #6495ed !important;</style>')
+    $('body').append('<style>.hljs{background-position: top right !important;</style>')
+    $('body').append('<style>.hljs{background-repeat: no-repeat !important;</style>')
+    $('body').append('<style>.hljs{padding: 1px !important;</style>')
+
+    $('body').append('<style>.hljs, pre, .feedbackbox{background-color: #000000 !important;}</style>')
+    //----------changed by zhangjiequan end  ----------
 
     var styleName;
     $("pre").on("click", function (e) {
@@ -228,8 +243,10 @@ $(document).ready(function () {
         .css('width', '339px')
         .css('position', 'fixed')
         .css('border-right', '#000 0px dashed');
-    $('div.arrow').css('background', '#27292C url("http://docs.unity3d.com/StaticFiles/images/sprites.png") 0 0 no-repeat')
-        .css('border', '#9ca9be 1px solid');
+    //----------changed by zhangjiequan start----------
+    //$('div.arrow').css('background', '#27292C url("http://docs.unity3d.com/StaticFiles/images/sprites.png") 0 0 no-repeat')
+    //    .css('border', '#9ca9be 1px solid');
+    //----------changed by zhangjiequan end  ----------
     $('.nextprev').css('background', '#222c37')
         .css('padding', '0px');
     $('body > div.header-wrapper > div.toolbar > div > div.script-lang').css('color', '#222c37');
