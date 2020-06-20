@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.6
+// @version					1.7
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -48,6 +48,9 @@
 // @resource tomorrow		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierlakeside.dark.css
 // @resource t3024		    https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierseaside.dark.css
 // @resource applepips		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-bespin.dark.css
+
+//TODO
+//原脚本主题相关的代码大量重复，可以把重复代码提取成方法，改成通过表驱动来处理。
 
 this.$ = this.jQuery = jQuery.noConflict(true);
 
