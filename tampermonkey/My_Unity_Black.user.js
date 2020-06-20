@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.5
+// @version					1.6
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -29,7 +29,7 @@
 // @downloadURL             https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black.user.js
 // ==/UserScript==
 
-//修改点
+//对原脚本中的修改有：
 //1、修改UserScript：增加：中文说明，更新地址等；修改：作者信息、命名空间等
 //2、对应Unity网页修改，增加高优先级的hljs样式，解决原脚本因年久失修导致的代码区、评论区背景不能黑的问题
 //3、注释“div.arrow”，解决原脚本导航栏图片丢失的问题
@@ -37,9 +37,17 @@
 //5、增加样式applepips，style selector中换行
 
 //样式增加简易教程
-//https://github.com/idleberg/base16-highlight.js选一个你喜欢的，如base16-3024.dark.css
+//https://github.com/idleberg/base16-highlight.js 选一个你喜欢的，如base16-3024.dark.css
 //找到对应的raw地址，如：https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-3024.dark.css
 //参考本脚本中的“tomorrow”，依葫芦画瓢，增加你刚刚选的样式。
+
+// 一些试过的样式
+// @resource bold		    https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierdune.dark.css
+// @resource grayscale		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierforest.dark.css
+// @resource ocean			https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierheath.dark.css
+// @resource tomorrow		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierlakeside.dark.css
+// @resource t3024		    https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-atelierseaside.dark.css
+// @resource applepips		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-bespin.dark.css
 
 this.$ = this.jQuery = jQuery.noConflict(true);
 
