@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name					[docs.unity3d & local] My Unity Black - a dark theme with JS/C# syntax highlighting
+// @name					MyUnityBlack[Unity在线及本地网页-黑色主题-JS和C#代码高亮]
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
+// @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
 // @version					1.1
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
+// @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
 // @include					https://docs.unity3d.com/*
 // @include					file://*Editor/Data/Documentation/*
@@ -21,6 +23,8 @@
 // @author                  zhangjiequan
 // @author_origin			drhouse
 // @icon					http://docs.unity3d.com/StaticFiles/images/favicons/favicon.ico
+// @updateURL               https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black.user.js
+// @downloadURL             https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/My_Unity_Black.user.js
 // ==/UserScript==
 
 this.$ = this.jQuery = jQuery.noConflict(true);
