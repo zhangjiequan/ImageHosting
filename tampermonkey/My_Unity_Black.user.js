@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					1.9
+// @version					2.0
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
@@ -11,6 +11,7 @@
 // @include					file://*Editor/Data/Documentation/*
 // @require					http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @require					http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js
+// @require					https://cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js
 // @resource bold		    https://raw.githubusercontent.com/daylerees/colour-schemes/master/highlightjs/bold.css
 // @resource grayscale		https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-grayscale.dark.css
 // @resource ocean			https://raw.githubusercontent.com/idleberg/base16-highlight.js/master/base16-ocean.dark.css
@@ -35,6 +36,7 @@
 //3、注释“div.arrow”，解决原脚本导航栏图片丢失的问题
 //4、增加样式3024
 //5、增加样式applepips，style selector中换行
+//6、行号功能，使行号带来的框变黑，抽取部分重复代码
 
 //样式增加简易教程
 //https://github.com/idleberg/base16-highlight.js 选一个你喜欢的，如base16-3024.dark.css
@@ -54,84 +56,35 @@
 
 this.$ = this.jQuery = jQuery.noConflict(true);
 
+//是否开启行号功能-
+//开启行号带来的问题：
+//变色后变不回来
+var kEnableLineNumbers = false
+
+function handleEachBlock(block) {
+    hljs.highlightBlock(block);
+    if (kEnableLineNumbers) {
+        hljs.lineNumbersBlock(block);
+    }
+}
+
+function handleClick(e, themeName) {
+    if (e) {
+        e.preventDefault();
+    }
+    GM_setValue("unitystyle", themeName);
+    GM_addStyle(GM_getResourceText(themeName));
+    $('pre').each(function (i, block) {
+        handleEachBlock(block)
+    });
+    $('code').each(function (i, block) {
+        handleEachBlock(block)
+    });
+}
+
 $(document).ready(function () {
 
-    function bold() {
-        GM_addStyle(GM_getResourceText("bold"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function github() {
-        GM_addStyle(GM_getResourceText("github"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function grayscale() {
-        GM_addStyle(GM_getResourceText("grayscale"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function ocean() {
-        GM_addStyle(GM_getResourceText("ocean"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function tomorrow() {
-        GM_addStyle(GM_getResourceText("tomorrow"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function t3024() {
-        GM_addStyle(GM_getResourceText("t3024"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    function applepips() {
-        GM_addStyle(GM_getResourceText("applepips"));
-        $('pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-        $('code').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    }
-
-    //init style
-    //bold();
-    //github();
-    //grayscale();
-    ocean();
-    //tomorrow();
+    handleClick(null, "ocean")
 
     //style selector
     $("<div id='rock1'></div>").appendTo('pre.codeExampleCS');
@@ -204,80 +157,43 @@ $(document).ready(function () {
     var styleName;
     $("pre").on("click", function (e) {
         $("#bold").click(function (e) {
-            e.preventDefault();
-            bold();
-            styleName = 'bold';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'bold')
         });
         $("#grayscale").click(function (e) {
-            e.preventDefault();
-            grayscale();
-            styleName = 'grayscale';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'grayscale')
         });
         $('#ocean').on('click', function (e) {
-            e.preventDefault();
-            ocean();
-            styleName = 'ocean';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'ocean')
         });
         $('#tomorrow').on('click', function (e) {
-            e.preventDefault();
-            tomorrow();
-            styleName = 'tomorrow';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'tomorrow')
         });
         $('#t3024').on('click', function (e) {
-            e.preventDefault();
-            t3024();
-            styleName = 't3024';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 't3024')
         });
         $('#applepips').on('click', function (e) {
-            e.preventDefault();
-            applepips();
-            styleName = 'applepips';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'applepips')
         });
     });
 
     $("pre.codeExampleCS").on("click", function (e) {
         $("#bold1").click(function (e) {
-            e.preventDefault();
-            bold();
-            styleName = 'bold';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'bold')
         });
         $("#grayscale1").click(function (e) {
-            e.preventDefault();
-            grayscale();
-            styleName = 'grayscale';
-            console.log('cs gscale');
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'grayscale')
         });
         $('#ocean1').on('click', function (e) {
-            e.preventDefault();
-            ocean();
-            styleName = 'ocean';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'ocean')
         });
         $('#tomorrow1').on('click', function (e) {
-            e.preventDefault();
-            tomorrow();
-            styleName = 'tomorrow';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 'tomorrow')
         });
         $('#t30241').on('click', function (e) {
-            e.preventDefault();
-            t3024();
-            styleName = 't3024';
-            GM_setValue("unitystyle", styleName);
+            handleClick(e, 't3024')
         });
-        $('#applepips').on('click', function (e) {
-            e.preventDefault();
-            applepips();
-            styleName = 'applepips';
-            GM_setValue("unitystyle", styleName);
+        $('#applepips1').on('click', function (e) {
+            handleClick(e, 'applepips')
         });
     });
 
@@ -348,4 +264,8 @@ $(document).ready(function () {
     $('body > div.header-wrapper > div.toolbar > div > div > div.lang-list > ul > li > a').css('color', 'black');
     //*/
 
+    //line border black
+    //使行号带来的框变黑
+    $('body').append('<style>.hljs-ln-numbers{border-color: #000 !important;</style>')
+    $('body').append('<style>.hljs-ln-code{border-bottom-color: #000 !important;</style>')
 });
