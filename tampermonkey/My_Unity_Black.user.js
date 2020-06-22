@@ -268,4 +268,12 @@ $(document).ready(function () {
     //使行号带来的框变黑
     $('body').append('<style>.hljs-ln-numbers{border-color: #000 !important;</style>')
     $('body').append('<style>.hljs-ln-code{border-bottom-color: #000 !important;</style>')
+
+    //https://docs.unity3d.com/Packages 变黑
+    $('.img-thumbnail, body').css('background-color', '#1a1b1c')
+    $('.sidetoc').css('background-color', '#1a1b1c')
+    $('.sidenav, .fixed_header, .toc').css('background-color', '#1a1b1c')
+    $('.navbar-default').css('background-color', '#1a1b1c')
+    $('.sidefilter').css('background-color', '#1a1b1c')
+    $('td').css('background-color', '#1a1b1c')
 });
