@@ -3,7 +3,7 @@
 // @name_origin				[docs.unity3d & local] Unity Black - a dark theme with JS/C# syntax highlighting
 // @namespace               https://github.com/zhangjiequan/
 // @namespace_origin		https://greasyfork.org/en/users/10118-drhouse
-// @version					2.0
+// @version					2.1
 // @description				A beautiful dark theme with syntax highlighting (4 color schemes, JS & C#) that improves visual code samples and lowers screen glare.
 // @description:zh			一个美丽的深色主题，带有语法突出显示（4种配色方案，JS和C＃），可改善可视代码示例并降低屏幕眩光
 // @include					http://docs.unity3d.com/*
