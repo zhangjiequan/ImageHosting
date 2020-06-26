@@ -4,7 +4,7 @@
 // @version      1.2
 // @updateURL    https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/oa_helper/lite/oa_helper_lite.user.js
 // @downloadURL  https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/oa_helper/lite/oa_helper_lite.user.js
-// @description  自动选择上次选择的部门负责人、以及填写常用缺省值
+// @description  自动选择上次选择的部门负责人
 // @author       zhangjiequan
 // @match        http://oa.info/*
 // @grant        none
