@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OA_小助手_full
 // @namespace    https://github.com/zhangjiequan/
-// @version      1.1
+// @version      1.2
 // @updateURL    https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/oa_helper/full/oa_helper_full.user.js
 // @downloadURL  https://github.com/zhangjiequan/ImageHosting/raw/master/tampermonkey/oa_helper/full/oa_helper_full.user.js
 // @description  自动选择上次选择的部门负责人、以及填写常用缺省值
